@@ -33,6 +33,10 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            if [ ! -d "/var/www/html/test-front/.git" ]; then
+            git clone https://github.com/ilqar96/promptopia.git /var/www/html/test-front
+            fi
+            
             cd /var/www/html/test-front
             git pull origin main
             npm install
