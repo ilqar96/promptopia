@@ -6,8 +6,11 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+  ultra-next:
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      matrix:
+        runner: [ ultranext ]
 
     steps:
       - name: Checkout code
