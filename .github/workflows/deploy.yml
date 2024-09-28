@@ -23,8 +23,6 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm run build --if-present
-      - name: Restart app with PM2
-        run: |
-          cd /var/www/html/cicd/actions-runner/_work/promptopia/promptopia
-          pm2 restart 0
+      - name: Move build output to test-front
+        run: mv .next/* /var/www/html/test-front/
 
